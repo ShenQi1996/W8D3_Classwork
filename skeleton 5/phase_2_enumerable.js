@@ -1,5 +1,5 @@
 function print(num) {
-  return (num = num + 1);
+  return num;
 }
 
 Array.prototype.myEach = function (callback) {
@@ -16,3 +16,20 @@ Array.prototype.myMap = function (callback) {
   });
   return anser;
 };
+
+Array.prototype.myReduce = function (callback, acc) {
+  let answer = 0;
+  if (typeof acc === "undefined") {
+    acc = this[0]
+  } else {
+    this.unshift(acc)
+  };
+
+
+  this.myEach(function (ele) {
+    answer = answer + ele;
+  });
+
+  return answer; 
+}
+
